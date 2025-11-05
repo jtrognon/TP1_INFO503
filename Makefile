@@ -19,10 +19,6 @@ lib%.a: %.o
 %.o: src/%.c include/%.h
 	gcc -c $< -I./include -o $@
 
-# Regle générique pour compiler les fichiers .c en fichiers .o (marche seulement pour les lib car elles seules possedes des .h)
-# %.o: %.c include/%.h 	# définition d'un motif generique
-# 	gcc -c src/$< -o $@
-
 # Cible pour nettoyer les fichiers objets et l'exécutable
 clean:
 	rm -f *.o ./lib/* ./bin/*
