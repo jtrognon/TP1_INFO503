@@ -1,8 +1,7 @@
 .PHONY: all clean # .PHONY -> précise que certaines cibles ne correspondent pas à des fichiers (cible mais pas fichier)
 
 # Cible principale
-all: bin/city-manager bin/city-manager_gui
-
+all: bin/TP1_INFO503_JULIEN-DODSWORTH_TROGNON
 # Règle pour construire l'exécutable
 bin/TP1_INFO503_JULIEN-DODSWORTH_TROGNON: main.o libListeElements.a libArbre.a
 	gcc $< -Wall -Wextra -I./include -L./lib -lListeElements -lArbre -o $@ 

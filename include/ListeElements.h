@@ -1,6 +1,11 @@
 #ifndef LISTE_ELEMENTS_H
 #define LISTE_ELEMENTS_H
 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
 #define Test(cond, msg)\
     do{\
         if (cond) {\
@@ -14,19 +19,19 @@ typedef struct _Noeud
 {   
     int valeur;
     struct _Noeud * suivant;
-} Noeud;
+} *Noeud;
 
-void ajouterNoeudTail(Noeud ** liste, int valeur);
+void ajouterNoeudTail(Noeud * liste, int valeur);
 
-void supprimerNoeud(Noeud **liste, int valeur);
+void supprimerNoeud(Noeud *liste, int valeur);
 
-void afficherListe(Noeud * liste);
+void afficherListe(Noeud liste);
 
-void libererListe(Noeud ** liste);
+void libererListe(Noeud * liste);
 
-int popPremNoeud(Noeud ** liste);
+int popPremNoeud(Noeud * liste);
 
-int tailleListe(const Noeud * liste);
+int tailleListe(Noeud * liste);
 
 
 void test_liste();
