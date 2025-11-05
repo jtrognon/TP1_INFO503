@@ -1,0 +1,6 @@
+// TP1 a rendre a la troisieme seance
+// Presentation du travail + discussion autour
+// Demonstration : faire des tests + idee de ce quon a fait
+// Imaginer des dispositifs qui permettent de montrer ce qu'on a fait
+// Il faut que ca soit convainquant, que ca prouve des choses
+// Il faut etre capable d'expliquer et de le vendre
