@@ -9,13 +9,15 @@ typedef struct _Feuille
     struct _Feuille * suivant;
 } Feuille;
 
-// typedef struct Arbre;
+
+typedef struct _Arbre Arbre;
 
 typedef union _ABS
 {
-    Feuille feuille;
-    Arbre arbre;
+    Feuille * feuille;
+    Arbre * arbre;
 } ABS;
+
 
 typedef struct _Arbre
 {   
