@@ -1,7 +1,7 @@
 #include "Arbre.h"
 #include "ListeElements.h"
 
-void main()
+int main()
 {
     test_liste();
     test_ABS();
