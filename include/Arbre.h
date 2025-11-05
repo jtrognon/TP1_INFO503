@@ -1,3 +1,6 @@
+#ifndef ARBRE_H
+#define ARBRE_H
+
 #include "ListeElements.h"
 
 typedef struct _Feuille
@@ -42,3 +45,6 @@ void libererFeuille(Feuille ** feuille);
 void test_ABS();
 void test_Arbre();
 void test_Feuille();
+
+
+#endif

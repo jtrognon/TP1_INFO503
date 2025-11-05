@@ -1,7 +1,5 @@
-#ifndef ELEMENTS_H
-#define ELEMENTS_H
-
-#include <stdbool.h>
+#ifndef LISTE_ELEMENTS_H
+#define LISTE_ELEMENTS_H
 
 #define Test(cond, msg)\
     do{\
