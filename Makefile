@@ -4,22 +4,13 @@
 all: bin/city-manager bin/city-manager_gui
 
 # Règle pour construire l'exécutable
-bin/city-manager: main.o jeu.o libElements.a libutils.a libVille.a
-	gcc $< jeu.o -Wall -I./include -L./lib -lVille -lElements -lutils -lm -o $@ 
+bin/TP1_INFO503_JULIEN-DODSWORTH_TROGNON: main.o libListeElements.a libArbre.a
+	gcc $< -Wall -Wextra -I./include -L./lib -lListeElements -lArbre -o $@ 
 # -I pour le chemin des '#include'
 
-
-bin/city-manager_gui: main_gui.o jeu.o libElements.a libutils.a libVille.a
-	gcc $< jeu.o -Wall -I./include -L./lib -lVille -lElements -lutils -lm -o $@ `pkg-config --cflags --libs gtk+-3.0`
-
-
 # Ecrit ici car pas de .h donc marche par avec regle generique 
-main.o: src/main.c libElements.a libutils.a libVille.a
-	gcc -c $< -Wall -I./include -L./lib -lVille -lElements -lutils -lm -o $@ #-lm : librairie math
-
-main_gui.o: src/main_gui.c libElements.a libutils.a libVille.a
-	gcc -c $< -Wall -I./include -L./lib -lVille -lElements -lutils -lm -o $@ `pkg-config --cflags --libs gtk+-3.0`
-
+main.o: src/main.c libListeElements.a libArbre.a
+	gcc -c $< -Wall -Wextra -I./include -L./lib -lListeElements -lArbre -o $@
 
 # creation de la lib math
 lib%.a: %.o
