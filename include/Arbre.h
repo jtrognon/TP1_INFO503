@@ -1,48 +1,56 @@
 #ifndef ARBRE_H
 #define ARBRE_H
 
+#include <stdlib.h>
 #include "ListeElements.h"
+
 
 typedef struct _Feuille
 {   
     int valeur;
-    struct _Feuille * suivant;
+    Noeud * liste;
 } Feuille;
 
 
 typedef struct _Arbre Arbre;
 
-typedef union _ABS
-{
+typedef enum _TypeABS {VIDE, FEUILLE, ARBRE} TypeABS;
+
+typedef union _UnionABS {
     Feuille * feuille;
     Arbre * arbre;
+} UnionABS;
+
+typedef struct ABS {
+    TypeABS type;
+    UnionABS valeur;
 } ABS;
 
 
 typedef struct _Arbre
 {   
     int racine;
-    ABS * fg;
-    ABS * fd;
+    ABS fg;
+    ABS fd;
 } Arbre;
 
 
-Arbre ** creerArbre(int racine, ABS fg, ABS fd);
+ABS creerABSVide();
 
-Feuille ** creerFeuille(int valeur, Noeud liste);
+Arbre * creerArbre(int racine, ABS fg, ABS fd);
 
+Feuille * creerFeuille(int valeur, Noeud * liste);
 
-void ajouterFg(Arbre ** arbre, ABS fg);
+void afficherABS(ABS abs, char * tabulations);
+void afficherArbre(Arbre * arbre, char * tabulations);
+void afficherFeuille(Feuille * feuille, char * tabulations);
 
-void ajouterFd(Arbre ** arbre, ABS fg);
-
-void afficherABS(ABS * abs);
-void afficherArbre(Arbre * arbre);
-void afficherFeuille(Feuille * feuille);
-
-void libererABS(ABS ** abs);
+void libererABS(ABS abs);
 void libererArbre(Arbre ** arbre);
 void libererFeuille(Feuille ** feuille);
+
+void estArbre(ABS abs);
+void estFeuille(ABS abs);
 
 void test_ABS();
 void test_Arbre();
