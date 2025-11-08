@@ -5,4 +5,6 @@ int main()
 {
     test_liste();
     test_ABS();
+
+    return(0);
 }
