@@ -8,20 +8,20 @@
 typedef struct _Feuille
 {   
     int valeur;
-    Noeud * liste;
+    Noeud liste;
 } Feuille;
 
 
 typedef struct _Arbre Arbre;
 
-typedef enum _TypeABS {VIDE, FEUILLE, ARBRE} TypeABS;
+typedef enum _TypeABS {FEUILLE, ARBRE} TypeABS;
 
 typedef union _UnionABS {
     Feuille * feuille;
     Arbre * arbre;
 } UnionABS;
 
-typedef struct ABS {
+typedef struct _ABS {
     TypeABS type;
     UnionABS valeur;
 } ABS;
@@ -30,28 +30,28 @@ typedef struct ABS {
 typedef struct _Arbre
 {   
     int racine;
-    ABS fg;
-    ABS fd;
+    ABS * fg;
+    ABS * fd;
 } Arbre;
 
 
-ABS creerABSVide();
+// Creation
+ABS * creerABSArbre(int racine, ABS * fg, ABS * fd);
+ABS * creerABSFeuille(int valeur, Noeud liste);
+Arbre * creerArbre(int racine, ABS * fg, ABS * fd);
+Feuille * creerFeuille(int valeur, Noeud liste);
 
-Arbre * creerArbre(int racine, ABS fg, ABS fd);
-
-Feuille * creerFeuille(int valeur, Noeud * liste);
-
-void afficherABS(ABS abs, char * tabulations);
+// Affichage
+void afficherABS(ABS * abs, char * tabulations);
 void afficherArbre(Arbre * arbre, char * tabulations);
 void afficherFeuille(Feuille * feuille, char * tabulations);
 
-void libererABS(ABS abs);
+// Liberation
+void libererABS(ABS ** abs);
 void libererArbre(Arbre ** arbre);
 void libererFeuille(Feuille ** feuille);
 
-void estArbre(ABS abs);
-void estFeuille(ABS abs);
-
+// Tests
 void test_ABS();
 void test_Arbre();
 void test_Feuille();

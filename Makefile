@@ -5,12 +5,12 @@ all: bin/TP1_INFO503_JULIEN-DODSWORTH_TROGNON
 
 # Règle pour construire l'exécutable
 bin/TP1_INFO503_JULIEN-DODSWORTH_TROGNON: main.o libListeElements.a libArbre.a
-	gcc $< -Wall -Wextra -I./include -L./lib -lListeElements -lArbre -o $@ 
+	gcc $< -g -O0 -Wall -Wextra -I./include -L./lib -lListeElements -lArbre -o $@ 
 # -I pour le chemin des '#include'
 
 # Ecrit ici car pas de .h donc marche par avec regle generique 
 main.o: src/main.c libListeElements.a libArbre.a
-	gcc -c $< -Wall -Wextra -I./include -L./lib -lListeElements -lArbre -o $@
+	gcc -c $< -g -O0  -Wall -Wextra -I./include -L./lib -lListeElements -lArbre -o $@
 
 # creation de la lib math
 lib%.a: %.o
