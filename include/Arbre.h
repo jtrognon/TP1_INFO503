@@ -24,6 +24,7 @@ typedef union _UnionABS {
 typedef struct _ABS {
     TypeABS type;
     UnionABS valeur;
+    struct _ABS * pere;
 } ABS;
 
 
@@ -36,10 +37,14 @@ typedef struct _Arbre
 
 
 // Creation
-ABS * creerABSArbre(int racine, ABS * fg, ABS * fd);
-ABS * creerABSFeuille(int valeur, Noeud liste);
+ABS * creerABSArbre(int racine, ABS * fg, ABS * fd, ABS * pere);
+ABS * creerABSFeuille(int valeur, Noeud liste, ABS * pere);
 Arbre * creerArbre(int racine, ABS * fg, ABS * fd);
 Feuille * creerFeuille(int valeur, Noeud liste);
+
+// Modification
+void arbreVersFeuille(ABS ** abs);
+void changementValeurFeuille(ABS * abs);
 
 // Affichage
 void afficherABS(ABS * abs, char * tabulations);
